@@ -133,7 +133,7 @@ const Contact = () => {
                 </a>
 
                 <a
-                  href="https://tiktok.com"
+                  href="https://www.tiktok.com/@pin_codes?lang=en"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-3 p-4 rounded-lg border border-gray-800 bg-gray-900 hover:bg-black transition group"
