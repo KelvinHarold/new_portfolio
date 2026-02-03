@@ -34,7 +34,7 @@ const Projects = () => {
       tech: ['React', 'Tailwind CSS', 'Vite'],
       category: 'Frontend',
       github: 'https://github.com',
-      live: 'https://example.com',
+      live: 'https://kelvinportfolio-mu.vercel.app/',
       icon: <Globe size={20} />,
     },
     {
