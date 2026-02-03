@@ -88,7 +88,7 @@ const Contact = () => {
 
               <div className="grid grid-cols-2 gap-4">
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/kelvin-kifunda-20a886290/"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-3 p-4 rounded-lg border border-blue-100 bg-blue-50 hover:bg-blue-100 transition group"
