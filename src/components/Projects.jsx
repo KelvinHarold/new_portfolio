@@ -1,5 +1,6 @@
 // components/Projects.jsx
-import { ExternalLink, Github, Globe, Server, FolderGit2 } from 'lucide-react'
+import { ExternalLink, Github, Globe, Server, FolderGit2, ChevronLeft, ChevronRight } from 'lucide-react'
+import { useState } from 'react'
 
 const Projects = () => {
   const projects = [
@@ -22,7 +23,7 @@ const Projects = () => {
       tech: ['Laravel', 'React', 'MySQL',],
       category: 'Fullstack',
       github: 'https://github.com',
-        live: 'https://timetable.kesug.com',
+      live: 'https://timetable.kesug.com',
       icon: <FolderGit2 size={20} />,
     },
     {
@@ -47,8 +48,7 @@ const Projects = () => {
       live: null,
       icon: <Server size={20} />,
     },
-
-     {
+    {
       id: 5,
       title: 'Cleaning Services Booking-System',
       description:
@@ -59,9 +59,7 @@ const Projects = () => {
       live: null,
       icon: <Server size={20} />,
     },
-
-    
-     {
+    {
       id: 6,
       title: 'Football Hall Report Management System',
       description:
@@ -72,8 +70,7 @@ const Projects = () => {
       live: null,
       icon: <Server size={20} />,
     },
-
-      {
+    {
       id: 7,
       title: 'U-Connect E-Commerce Platform',
       description:
@@ -86,10 +83,23 @@ const Projects = () => {
     },
   ]
 
+  const projectsPerPage = 4
+  const [currentPage, setCurrentPage] = useState(1)
+
+  // Calculate pagination
+  const totalPages = Math.ceil(projects.length / projectsPerPage)
+  const indexOfLastProject = currentPage * projectsPerPage
+  const indexOfFirstProject = indexOfLastProject - projectsPerPage
+  const currentProjects = projects.slice(indexOfFirstProject, indexOfLastProject)
+
+  // Handle page change
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber)
+  }
+
   return (
     <section className="py-16">
       <div className="max-w-7xl mx-auto px-4">
-
         {/* SECTION HEADER */}
         <div className="mb-12 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -102,8 +112,8 @@ const Projects = () => {
         </div>
 
         {/* PROJECT GRID */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project) => (
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
+          {currentProjects.map((project) => (
             <div
               key={project.id}
               className="group bg-white border border-gray-100 rounded-xl p-6 hover:shadow-lg transition"
@@ -167,6 +177,62 @@ const Projects = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* PAGINATION NAVIGATION */}
+        <div className="flex items-center justify-center gap-2">
+          {/* Previous Button */}
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition ${
+              currentPage === 1
+                ? 'border-gray-200 text-gray-400 cursor-not-allowed'
+                : 'border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400'
+            }`}
+          >
+            <ChevronLeft size={16} />
+            Previous
+          </button>
+
+          {/* Page Numbers */}
+          <div className="flex items-center gap-1">
+            {[...Array(totalPages)].map((_, index) => {
+              const pageNumber = index + 1
+              return (
+                <button
+                  key={pageNumber}
+                  onClick={() => handlePageChange(pageNumber)}
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center transition ${
+                    currentPage === pageNumber
+                      ? 'bg-blue-600 text-white'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  {pageNumber}
+                </button>
+              )
+            })}
+          </div>
+
+          {/* Next Button */}
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition ${
+              currentPage === totalPages
+                ? 'border-gray-200 text-gray-400 cursor-not-allowed'
+                : 'border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400'
+            }`}
+          >
+            Next
+            <ChevronRight size={16} />
+          </button>
+        </div>
+
+        {/* Page Info */}
+        <div className="text-center mt-4 text-gray-500 text-sm">
+          Showing {indexOfFirstProject + 1}-{Math.min(indexOfLastProject, projects.length)} of {projects.length} projects
         </div>
       </div>
     </section>
