@@ -1,96 +1,77 @@
 // components/Home.jsx
-import { GraduationCap, MapPin, ExternalLink, Github, Linkedin } from 'lucide-react'
+import { Code, Database, Globe, ChevronRight } from 'lucide-react'
 
 const Home = () => {
   return (
-    <section className="py-16">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-14 items-center">
-
-          {/* LEFT CONTENT */}
+    <section className="min-h-screen flex items-center justify-center py-16">
+      <div className="max-w-4xl mx-auto px-4">
+        <div className="text-center">
+          
+          {/* WELCOME SECTION */}
           <div>
-            <span className="inline-block mb-4 text-sm font-semibold tracking-wide text-blue-600 uppercase">
-              Portfolio Introduction
-            </span>
-
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-5">
-              Hi, I’m{' '}
-              <span className="text-blue-600">Kelvin</span>
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
+              Hi! I'm{' '}
+              <span className="text-blue-600">Kelvin Harold</span>
             </h1>
 
-            <p className="text-lg text-gray-600 leading-relaxed mb-8 max-w-xl">
-              I am a student at the <strong>University of Dodoma (UDOM)</strong>,
-              pursuing a degree in{' '}
-              <span className="text-blue-600 font-medium">
-                Instructional Design with Information Technology
-              </span>.
-              My focus is on building digital solutions that connect education and technology.
+            <p className="text-xl text-gray-600 leading-relaxed mb-10 max-w-2xl mx-auto">
+              Welcome to my portfolio. I create digital solutions that bridge technology 
+              with real-world needs through modern web development.
             </p>
 
-            {/* INFO CARDS */}
-            <div className="space-y-4 mb-10">
-              <div className="flex items-start gap-4">
-                <GraduationCap className="text-blue-600 mt-1" size={22} />
-                <div>
-                  <h3 className="font-semibold text-gray-800">
-                    Education
+            {/* SERVICES SUMMARY */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-3xl mx-auto">
+              <div className="flex flex-col items-center gap-4 p-6 rounded-xl bg-blue-50 border border-blue-100 hover:shadow-md transition">
+                <div className="p-3 rounded-lg bg-blue-100">
+                  <Globe className="text-blue-600" size={28} />
+                </div>
+                <div className="text-center">
+                  <h3 className="font-semibold text-gray-800 mb-2">
+                    Websites Development
                   </h3>
                   <p className="text-gray-600 text-sm">
-                    University of Dodoma (UDOM)
+                    Responsive, modern websites with optimal UX
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <MapPin className="text-green-600 mt-1" size={22} />
-                <div>
-                  <h3 className="font-semibold text-gray-800">
-                    Field of Study
+              <div className="flex flex-col items-center gap-4 p-6 rounded-xl bg-green-50 border border-green-100 hover:shadow-md transition">
+                <div className="p-3 rounded-lg bg-green-100">
+                  <Database className="text-green-600" size={28} />
+                </div>
+                <div className="text-center">
+                  <h3 className="font-semibold text-gray-800 mb-2">
+                    Database Design
                   </h3>
                   <p className="text-gray-600 text-sm">
-                    Instructional Design with IT
+                    Efficient, scalable database architecture
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col items-center gap-4 p-6 rounded-xl bg-purple-50 border border-purple-100 hover:shadow-md transition">
+                <div className="p-3 rounded-lg bg-purple-100">
+                  <Code className="text-purple-600" size={28} />
+                </div>
+                <div className="text-center">
+                  <h3 className="font-semibold text-gray-800 mb-2">
+                    WebApp Development
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    Full-stack interactive web applications
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* ACTION BUTTONS */}
-            <div className="flex gap-4">
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gray-300 text-gray-800 hover:bg-gray-100 transition"
-              >
-                <Github size={18} />
-                GitHub
-                <ExternalLink size={14} />
-              </a>
-
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
-              >
-                <Linkedin size={18} />
-                LinkedIn
-                <ExternalLink size={14} />
-              </a>
+            {/* CTA */}
+            <div className="flex flex-col items-center gap-4">
+              <p className="text-gray-700 mb-2">
+                Want to know more about me and my work?
+              </p>
+            
             </div>
-          </div>
 
-          {/* RIGHT IMAGE */}
-          <div className="flex justify-center">
-            <div className="relative">
-              <div className="w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden shadow-xl">
-                <img
-                   src="/image.jpeg" 
-                  alt="Kelvin"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
           </div>
 
         </div>

@@ -1,4 +1,3 @@
-// App.jsx
 import { useState } from 'react'
 import Header from './components/Header'
 import Home from './components/Home'
@@ -6,6 +5,7 @@ import Projects from './components/Projects'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import About from './components/About'
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
@@ -13,6 +13,7 @@ function App() {
   const renderSection = () => {
     switch(activeSection) {
       case 'home': return <Home />
+      case 'about': return <About />
       case 'projects': return <Projects />
       case 'skills': return <Skills />
       case 'contact': return <Contact />

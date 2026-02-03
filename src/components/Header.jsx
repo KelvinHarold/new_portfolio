@@ -1,6 +1,6 @@
 // components/Header.jsx
 import { useState } from 'react'
-import { Menu, X, User, FolderKanban, Code, Mail } from 'lucide-react'
+import { Menu, X, User, FolderKanban, Code, Mail, UserCircle } from 'lucide-react'
 
 const Header = ({ activeSection, setActiveSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -9,6 +9,7 @@ const Header = ({ activeSection, setActiveSection }) => {
     { id: 'home', label: 'Home', icon: <User size={16} /> },
     { id: 'projects', label: 'Projects', icon: <FolderKanban size={16} /> },
     { id: 'skills', label: 'Skills', icon: <Code size={16} /> },
+        { id: 'about', label: 'About', icon: <UserCircle size={16} /> },
     { id: 'contact', label: 'Contact', icon: <Mail size={16} /> },
   ]
 
